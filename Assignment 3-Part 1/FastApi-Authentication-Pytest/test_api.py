@@ -4,7 +4,7 @@ from api import app
 client = TestClient(app)
 
 def test_read_item():
-    response = client.get("/all", headers={"access_token": "1234567asdfgh"})
+    response = client.get("/all", headers={"access_token": "ACCESS-KEY"})
     assert response.status_code == 200
     assert response.json() == {
     "data": [
@@ -42,18 +42,18 @@ def test_read_item():
 
 
 def test_read_all_bad_token():
-  response = client.get("/all", headers={"access_token": "12345"})
+  response = client.get("/all", headers={"access_token": "ACCESS-KEY"})
   assert response.status_code == 403
   assert response.json() == {"detail": "Could not validate credentials"}
 
 def test_verification_status_bad_token():
-  response = client.get("/verification_details/Verified", headers={"access_token": "1234567"})
+  response = client.get("/verification_details/Verified", headers={"access_token": "ACCESS-KEY"})
   assert response.status_code == 403
   assert response.json() == {"detail": "Could not validate credentials"}
 
 
 def test_read_inexistent_item():
-  response = client.get("/verification_details/Verify", headers={"access_token": "1234567asdfgh"})
+  response = client.get("/verification_details/Verify", headers={"access_token": "ACCESS-KEY"})
   assert response.status_code == 404
   assert response.json() == {"detail": "Item not found"}
 
