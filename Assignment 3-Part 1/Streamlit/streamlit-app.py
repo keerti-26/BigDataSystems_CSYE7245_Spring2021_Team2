@@ -35,13 +35,13 @@ def main():
             status = st.text_input("Enter the verification Status")
             if st.button("Get Data"):
                 endpoint = 'verification_details'
-                access_key = '1234567asdfgh'
+                access_key = 'ACCESS-KEY'
                 res = requests.get(f"http://localtest.me:8000/{endpoint}/{status}?access_token={access_key}")
                 st.write(res.json())
 
         elif r == 'Get Data By Loan Status Count':
             endpoint = 'GET_COUNT'
-            access_key = '1234567asdfgh'
+            access_key = 'ACCESS-KEY'
             res = requests.get(f"http://localtest.me:8000/{endpoint}?access_token={access_key}")
             df = load_count(res.json())
             st.write(df)
@@ -51,7 +51,7 @@ def main():
             income = st.text_input("Enter Annual Income")
             if st.button("Get Data"):
                 endpoint = 'ownership_income'
-                access_key = '1234567asdfgh'
+                access_key = 'ACCESS-KEY'
                 res = requests.get(f"http://localtest.me:8000/{endpoint}/{ownership},{income}?access_token={access_key}")
                 st.write(res.json())
 
