@@ -18,7 +18,7 @@ conn = snowflake.connector.connect(
 )
 
 # Defining the access key
-API_KEY = "1234567asdfgh"
+API_KEY = "ACCESS-KEY"
 API_KEY_NAME = "access_token"
 COOKIE_DOMAIN = "localtest.me"
 
